@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        xmlns:local="clr-namespace:AdminUI"
+        xmlns:uc="clr-namespace:AdminUI.UserControls"
         mc:Ignorable="d" Height="740" Width="1280" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     
@@ -48,10 +48,66 @@
                 <Separator Height="0.8" Margin="20 30" Background="#46558a"/>
                 
                 <!--Menu Buttons-->
-                <Button>
+                <Button Style="{StaticResource menuButtonActive}">
                     <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Icon="Home" />
-                        <TextBlock Text="Dashboard" />
+                        <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="FileSignature" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Listing" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="EnvelopeOpenText" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Messages" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="ShoppingCart" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Orders" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="ChartArea" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Statistics" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="Coins" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Revenue" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="FlagCheckered" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Promote" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="Cog" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="PowerOff" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Logout" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -65,6 +121,41 @@
                     <GradientStop Color="#2c386c" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!--Top Menu-->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 30 20">
+                    <Button Content="Today" Style="{StaticResource topMenuButton}"/>
+                    <Button Content="Week" Style="{StaticResource topMenuButton}" Background="#5b60c4" Foreground="#ffffff"/>
+                    <Button Content="Month" Style="{StaticResource topMenuButton}"/>
+                    <Button Content="Year" Style="{StaticResource topMenuButton}"/>
+                </StackPanel>
+                
+                <!--Title-->
+                <TextBlock Text="Good Afternoon, Perman" FontSize="26" Foreground="#ccd7ff" HorizontalAlignment="Left" Margin="50 35 0 20"/>
+                
+                <!--Info Card-->
+                <Grid Grid.Row="1" Margin="50 20 15 40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <uc:InfoCard Grid.Column="0" Title="Total Views" Number="654,947" Icon="Eye" Background1="#827bff" Background2="#d9b5ff" 
+                                 EllipseBackground1="#b298fd" EllipseBackground2="#e4bbff"/>
+                    <uc:InfoCard Grid.Column="1" Title="Total Orders" Number="192,320" Icon="ShoppingCart" Background1="#fd8a87" Background2="#f3ab92" 
+                                 EllipseBackground1="#fbd5a8" EllipseBackground2="#fdb89b"/>
+                    <uc:InfoCard Grid.Column="2" Title="Total Revenue" Number="$14,528" Icon="Coins" Background1="#fc84cb" Background2="#fc8fae" 
+                                 EllipseBackground1="#fc8fae" EllipseBackground2="#ffabe6"/>
+                </Grid>
+            </Grid>
         </Border>
         
     </Grid>
